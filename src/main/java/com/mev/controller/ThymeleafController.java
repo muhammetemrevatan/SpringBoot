@@ -12,16 +12,19 @@ public class ThymeleafController {
     public String getThymeleaf1(){
         return "thymeleaf1";
     }
-
     @GetMapping("/thymeleaf2")
     public String getThymeleafModel(Model model){
         model.addAttribute("key_model","I came than model");
         return "thymeleaf1";
     }
-
     @GetMapping("/diffrentthymeleaf")
     public String getDifferentThymeleafModel(Model model){
-        model.addAttribute("key_model","I came than different model");
+        model.addAttribute("key_model1","I came than different model");
         return "different_template/template";
+    }
+    @GetMapping("/thymeleaf4")
+    public String getThymeleaf3(Model model){
+        model.addAttribute("key_model2","I came than thymeleaf3");
+        return "thymeleaf4";
     }
 }
