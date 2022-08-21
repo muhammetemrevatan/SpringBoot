@@ -12,18 +12,22 @@
 </head>
 <body class="bg-dark text-white container">
 
-    <h1>Thymeleaf1.html</h1>
-    <hr>
-    <p th:text="${key_model2}"></p>
+<h1>Thymeleaf1.html</h1>
+<hr>
+<p th:text="${key_model2}"></p>
 
-    <form action="">
-        <div class="form-group">
-            <label th:text="#{name_and_surname}" for="name_surname"></label>
-            <input type="text" class="form-control" placeholder="Adınız Soyadınız :" name=""name_surname autofocus required>
-            <button class="btn btn-primary mt-3">Gönder</button>
 
-        </div>
-    </form>
+<form action="">
+    <div class="form-group">
+        <label th:text="#{name_and_surname}" for="name_surname"></label>
+        <label>
+            <input type="text" class="form-control" placeholder="Adınız Soyadınız :" name="name_surname"  autofocus
+                   required>
+        </label>
+        <button class="btn btn-primary mt-3">Gönder</button>
+
+    </div>
+</form>
 
 <!-- Bootstrap JavaScript Libraries -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
