@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -44,7 +45,10 @@ public class ThymeleafController {
     }
 
     @GetMapping({"/thymeleaf2", "/thymeleaf2/", "/thymeleaf2/{id}"})
-    public String getThymeleafModelObject(Model model, @PathVariable(name = "id", required = false) Long id) {
+    public String getThymeleafModelObject(Model model
+            , @RequestParam(name = "name", required = false) String name
+            , @RequestParam(name = "age", required = false) Long age
+            , @PathVariable(name = "id", required = false) Long id) {
         ProductDto productDto = ProductDto
                 .builder()
                 .id(0L)
@@ -69,14 +73,11 @@ public class ThymeleafController {
         if (id != null) {
             model.addAttribute("get_id", "id: " + id);
         }
+
+        model.addAttribute("name",name);
+        model.addAttribute("age",age);
         return "thymeleaf2";
     }
 
-//    @GetMapping({"/thymeleaf2/", "/thymeleaf2/{id}"})//
-//    public String getId(Model model, @PathVariable(name = "id", required = false) Long id) {
-//        if (id != null) {
-//            model.addAttribute("get_id", "id: " + id);
-//        }
-//        return "thymeleaf2";
-//    }
+
 }
